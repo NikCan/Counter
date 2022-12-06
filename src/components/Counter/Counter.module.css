@@ -1,0 +1,41 @@
+.container {
+    display: grid;
+    grid-template-rows: 5fr 4fr;
+    width: 500px;
+    height: 400px;
+    margin: 50px auto auto;
+    text-align: center;
+    background-color: black;
+    border-radius: 10px;
+}
+
+.scoreboard {
+    width: 350px;
+    height: 150px;
+    margin: auto;
+    background-color: #61dafb;
+    border: 3px solid #61dafb;
+    font-size: 100px;
+    border-radius: 10px;
+}
+
+.buttonsBlock {
+    width: 350px;
+    height: 120px;
+    margin: auto;
+    border: 3px solid #61dafb;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.button {
+    border-radius: 10px;
+    margin: auto;
+    font-size: 70px;
+}
+
+
+
+
+

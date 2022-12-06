@@ -1,0 +1,54 @@
+.container {
+    display: grid;
+    grid-template-rows: 5fr 4fr;
+    width: 500px;
+    height: 400px;
+    margin: 50px auto auto;
+    text-align: center;
+    background-color: black;
+    border-radius: 10px;
+}
+
+.inputsBlock {
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    width: 350px;
+    height: 150px;
+    margin: auto;
+    background-color: #61dafb;
+    border: 3px solid #61dafb;
+    border-radius: 10px;
+}
+
+.inputValue {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin: auto 20px;
+    font-size: 25px;
+    text-align: left;
+}
+
+.inputValue input {
+    text-align: center
+}
+
+.buttonsBlock {
+    width: 350px;
+    height: 120px;
+    margin: auto;
+    border: 3px solid #61dafb;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.button {
+    border-radius: 10px;
+    margin: auto;
+    font-size: 70px;
+}
+
+
+
+
+

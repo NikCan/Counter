@@ -1,11 +1,13 @@
 import React from 'react';
-import './App.css';
-import {Counter} from "./components/Counter";
+import s from './App.module.css';
+import {CounterContainer} from "./components/Counter/CounterContainer";
+import {SetterContainer} from "./components/Setter/SetterContainer";
 
 function App() {
     return (
-        <div className="App">
-            <Counter onClickInc={()=>{}} onClickReset={()=>{}}/>
+        <div className={s.App}>
+            <SetterContainer/>
+            <CounterContainer/>
         </div>
     );
 }
