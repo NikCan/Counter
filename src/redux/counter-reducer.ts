@@ -12,7 +12,7 @@ export type InitialStateType = {
 
 export const resetValueAC = () => ({type: 'RESET'} as const)
 export const incValueAC = () => ({type: 'INC'} as const)
-export const setValuesAC = (newStartValue: number, newMaxValue: number) => ({
+export const setValuesAC = (newMaxValue: number, newStartValue: number) => ({
     type: 'SET',
     newStartValue: newStartValue,
     newMaxValue: newMaxValue,
@@ -20,8 +20,8 @@ export const setValuesAC = (newStartValue: number, newMaxValue: number) => ({
 
 const initialState: InitialStateType = {
     startValue: 0,
-    currentValue: 1,
-    maxValue: 5,
+    currentValue:0,
+    maxValue: 10,
 }
 
 export const counterReducer = (state = initialState, action: ActionsType): InitialStateType => {

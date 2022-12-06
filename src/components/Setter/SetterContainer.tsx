@@ -8,7 +8,7 @@ type mapStateToPropsType = {
     state: InitialStateType
 }
 type mapDispatchToPropsType = {
-    onClickSet: () => void
+    onClickSet: (maxValue: number, startValue: number) => void
 }
 export type SetterPropsType = mapStateToPropsType & mapDispatchToPropsType
 
@@ -19,7 +19,7 @@ const mapStateToProps = (state: RootState): mapStateToPropsType => {
 }
 const mapDispatchToProps = (dispatch: AppDispatch): mapDispatchToPropsType => {
     return {
-        onClickSet: () => dispatch(setValuesAC(2,10))
+        onClickSet: (maxValue, startValue) => dispatch(setValuesAC(maxValue,startValue))
     }
 }
 
