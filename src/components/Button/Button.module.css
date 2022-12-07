@@ -7,7 +7,7 @@
     color: rgb(112, 76, 182);
     padding-bottom: 4px;
     cursor: pointer;
-    background: rgba(112, 76, 182, 0.1) none;
+    background: rgba(112, 76, 182, 0.5) none;
     transition: all 0.15s;
 }
 
@@ -21,8 +21,8 @@
 }
 
 .button:disabled {
-    background-color: rgba(112, 76, 182, 0.1);
     opacity: 0.5;
     border: 2px solid transparent;
+    cursor: not-allowed;
 }
 
