@@ -6,6 +6,9 @@ test('value should be inc', () => {
         startValue: 0,
         currentValue: 0,
         maxValue: 5,
+        tempMaxValue: 5,
+        tempStartValue: 0,
+        message:""
     }
 
     const endState = counterReducer(startState, incValueAC())
@@ -19,6 +22,9 @@ test('value should be reset', () => {
         startValue: 0,
         currentValue: 3,
         maxValue: 5,
+        tempStartValue: 0,
+        tempMaxValue: 5,
+        message:""
     }
 
     const endState = counterReducer(startState, resetValueAC())

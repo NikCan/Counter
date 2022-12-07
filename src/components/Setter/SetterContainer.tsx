@@ -1,4 +1,4 @@
-import {InitialStateType, setValuesAC} from "../../redux/counter-reducer";
+import {changeMaxValuesAC, changeStartValuesAC, InitialStateType, setValuesAC} from "../../redux/counter-reducer";
 import {AppDispatch, RootState} from "../../redux/store";
 import {Setter} from "./Setter";
 import {connect} from "react-redux";
@@ -8,7 +8,9 @@ type mapStateToPropsType = {
     state: InitialStateType
 }
 type mapDispatchToPropsType = {
-    onClickSet: (maxValue: number, startValue: number) => void
+    onClickSet: () => void
+    changeStartValue:(tempStartValue: number) => void
+    changeMaxValue:(tempMaxValue: number) => void
 }
 export type SetterPropsType = mapStateToPropsType & mapDispatchToPropsType
 
@@ -19,7 +21,9 @@ const mapStateToProps = (state: RootState): mapStateToPropsType => {
 }
 const mapDispatchToProps = (dispatch: AppDispatch): mapDispatchToPropsType => {
     return {
-        onClickSet: (maxValue, startValue) => dispatch(setValuesAC(maxValue,startValue))
+        onClickSet: () => dispatch(setValuesAC()),
+        changeStartValue:(tempStartValue) => dispatch(changeStartValuesAC(tempStartValue)),
+        changeMaxValue: (tempMaxValue) => dispatch(changeMaxValuesAC(tempMaxValue))
     }
 }
 

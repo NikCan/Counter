@@ -3,10 +3,11 @@
     grid-template-rows: 5fr 4fr;
     width: 500px;
     height: 400px;
-    margin: 50px auto auto;
+    margin-top: 100px;
     text-align: center;
     background-color: black;
     border-radius: 10px;
+    justify-self: right;
 }
 
 .inputsBlock {
@@ -29,7 +30,14 @@
 }
 
 .inputValue input {
-    text-align: center
+    text-align: center;
+    width: 12em;
+}
+
+.errorInput {
+    color: red;
+    border: red 3px solid;
+    outline: none;
 }
 
 .buttonsBlock {

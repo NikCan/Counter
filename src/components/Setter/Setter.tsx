@@ -6,27 +6,27 @@ import s from './Setter.module.css'
 export const Setter: React.FC<SetterPropsType> = ({
                                                       onClickSet,
                                                       state,
+                                                      changeStartValue,
+                                                      changeMaxValue,
                                                       ...props
                                                   }) => {
-    const error = false
-    const [maxValue, setMaxValue] = useState<number>(state.maxValue)
-    const [startValue, setStartValue] = useState<number>(state.startValue)
-    const onChangeMaxValueHandler = (e: ChangeEvent<HTMLInputElement>) => setMaxValue(e.currentTarget.valueAsNumber)
-    const onChangeStartValueHandler = (e: ChangeEvent<HTMLInputElement>) => setStartValue(e.currentTarget.valueAsNumber)
-    const onClickSetHandler = () => onClickSet(maxValue, startValue)
+    const onChangeMaxValueHandler = (e: ChangeEvent<HTMLInputElement>) => changeMaxValue(e.currentTarget.valueAsNumber)
+    const onChangeStartValueHandler = (e: ChangeEvent<HTMLInputElement>) => changeStartValue(e.currentTarget.valueAsNumber)
+    const onClickSetHandler = () => onClickSet()
+    const error = state.tempStartValue < 0 || state.tempStartValue >= state.tempMaxValue
     return (
         <div className={s.container}>
             <div className={s.inputsBlock}>
                 <div className={s.inputValue}>max value:<input
-                    className={error ? "errorInput" : ""}
+                    className={error ? s.errorInput : ""}
                     type={"number"}
-                    value={maxValue}
+                    value={state.tempMaxValue}
                     onChange={onChangeMaxValueHandler}
                 /></div>
                 <div className={s.inputValue}>start value:<input
-                    className={error ? "errorInput" : ""}
+                    className={error ? s.errorInput : ""}
                     type={"number"}
-                    value={startValue}
+                    value={state.tempStartValue}
                     onChange={onChangeStartValueHandler}
                 /></div>
             </div>
@@ -35,7 +35,7 @@ export const Setter: React.FC<SetterPropsType> = ({
                     className={s.button}
                     callBack={onClickSetHandler}
                     name={"set"}
-                    disabled={false}
+                    disabled={error}
                 />
             </div>
         </div>

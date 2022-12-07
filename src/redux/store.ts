@@ -1,5 +1,7 @@
 import {configureStore} from '@reduxjs/toolkit';
 import {
+    changeMaxValueActionType,
+    changeStartValueActionType,
     counterReducer,
     incValueActionType,
     resetValueActionType,
@@ -8,7 +10,12 @@ import {
 
 export type AppDispatch = typeof store.dispatch;
 export type RootState = ReturnType<typeof store.getState>;
-export type ActionsType = resetValueActionType | incValueActionType | setValuesActionType
+export type ActionsType =
+    resetValueActionType
+    | incValueActionType
+    | setValuesActionType
+    | changeStartValueActionType
+    | changeMaxValueActionType
 const store = configureStore({
     reducer: {
         counter: counterReducer,
