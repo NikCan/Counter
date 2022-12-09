@@ -19,13 +19,13 @@ export const resetValueAC = () => ({type: 'RESET'} as const)
 export const incValueAC = () => ({type: 'INC'} as const)
 export const setValuesAC = () => ({type: 'SET'} as const)
 export const changeStartValuesAC = (tempStartValue: number) => ({
-    type: 'CHANGE-START',
+    type: 'CHANGE-START-VALUE',
     payload: {
         tempStartValue
     }
 } as const)
 export const changeMaxValuesAC = (tempMaxValue: number) => ({
-    type: 'CHANGE-MAX',
+    type: 'CHANGE-MAX-VALUE',
     payload: {
         tempMaxValue
     }
@@ -54,13 +54,13 @@ export const counterReducer = (state = initialState, action: ActionsType): Initi
                 startValue: state.tempStartValue,
                 message: ""
             }
-        case "CHANGE-START":
+        case "CHANGE-START-VALUE":
             return {
                 ...state,
                 tempStartValue: action.payload.tempStartValue,
                 message: action.payload.tempStartValue < 0 || action.payload.tempStartValue >= state.tempMaxValue ? "Incorrect value!" : "enter values and press 'set'"
             }
-        case "CHANGE-MAX":
+        case "CHANGE-MAX-VALUE":
             return {
                 ...state,
                 tempMaxValue: action.payload.tempMaxValue,
