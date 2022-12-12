@@ -67,6 +67,6 @@ export const counterReducer = (state = initialState, action: ActionsType): Initi
                 message: action.payload.tempMaxValue <= state.tempStartValue ? "Incorrect value!" : "enter values and press 'set'"
             }
         default:
-            return {...state}
+            return state
     }
 }

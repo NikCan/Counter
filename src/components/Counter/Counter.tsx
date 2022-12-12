@@ -2,6 +2,8 @@ import React from "react";
 import {Button} from "../Button/Button";
 import s from "./Counter.module.css"
 import {CounterPropsType} from "./CounterContainer";
+import classNames from "classnames";
+
 
 export const Counter: React.FC<CounterPropsType> = ({
                                                         onClickReset,
@@ -11,9 +13,11 @@ export const Counter: React.FC<CounterPropsType> = ({
                                                     }) => {
     const stopInc = state.currentValue === state.maxValue
     const error = state.tempStartValue < 0 || state.tempStartValue >= state.tempMaxValue
-    const scoreboardClassName = s.scoreboard + ' ' + (error ? s.warning :
-        state.message ? s.message :
-            stopInc ? s.maxValue : "")
+    const scoreboardClassName = classNames(s.scoreboard, {
+        [s.warning]: error,
+        [s.message]: !!state.message,
+        [s.maxValue]: stopInc
+    })
     return (
         <div className={s.container}>
             <div className={scoreboardClassName}>
