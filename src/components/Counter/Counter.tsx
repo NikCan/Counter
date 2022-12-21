@@ -1,16 +1,17 @@
 import React from "react";
 import {Button} from "../Button/Button";
 import s from "./Counter.module.css"
-import {CounterPropsType} from "./CounterContainer";
 import classNames from "classnames";
+import {useDispatch, useSelector} from "react-redux";
+import {RootStateType} from "../../redux/store";
+import {incValueAC, InitialStateType, resetValueAC} from "../../redux/counter-reducer";
 
+export const Counter:React.FC = () => {
+    console.log("Counter")
 
-export const Counter: React.FC<CounterPropsType> = ({
-                                                        onClickReset,
-                                                        onClickInc,
-                                                        state,
-                                                        ...props
-                                                    }) => {
+    const dispatch = useDispatch()
+    const state = useSelector<RootStateType, InitialStateType>(state => state.counter)
+
     const stopInc = state.currentValue === state.maxValue
     const error = state.tempStartValue < 0 || state.tempStartValue >= state.tempMaxValue
     const scoreboardClassName = classNames(s.scoreboard, {
@@ -18,6 +19,10 @@ export const Counter: React.FC<CounterPropsType> = ({
         [s.message]: !!state.message,
         [s.maxValue]: stopInc
     })
+
+    const onClickReset = () => dispatch(resetValueAC())
+    const onClickInc = () => dispatch(incValueAC())
+
     return (
         <div className={s.container}>
             <div className={scoreboardClassName}>

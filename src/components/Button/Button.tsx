@@ -7,6 +7,7 @@ type ButtonPropsType = {
     disabled?: boolean
     className: string
 }
+
 export const Button: React.FC<ButtonPropsType> = ({
                                                       className,
                                                       name,
@@ -14,6 +15,8 @@ export const Button: React.FC<ButtonPropsType> = ({
                                                       disabled,
                                                       ...props
                                                   }) => {
+    console.log("Button")
+
     return (
         <>
             <button className={s.button + ' ' + className}

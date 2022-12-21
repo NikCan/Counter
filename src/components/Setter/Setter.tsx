@@ -1,18 +1,25 @@
 import React, {ChangeEvent} from "react";
-import {SetterPropsType} from "./SetterContainer";
 import {Button} from "../Button/Button";
 import s from './Setter.module.css'
+import {useDispatch, useSelector} from "react-redux";
+import {RootStateType} from "../../redux/store";
+import {changeMaxValuesAC, changeStartValuesAC, InitialStateType, setValuesAC} from "../../redux/counter-reducer";
 
-export const Setter: React.FC<SetterPropsType> = ({
-                                                      onClickSet,
-                                                      state,
-                                                      changeStartValue,
-                                                      changeMaxValue,
-                                                      ...props
-                                                  }) => {
-    const onChangeMaxValueHandler = (e: ChangeEvent<HTMLInputElement>) => changeMaxValue(e.currentTarget.valueAsNumber)
-    const onChangeStartValueHandler = (e: ChangeEvent<HTMLInputElement>) => changeStartValue(e.currentTarget.valueAsNumber)
+export const Setter: React.FC = () => {
+    console.log("Setter")
+    const dispatch = useDispatch()
+    const state = useSelector<RootStateType, InitialStateType>(state => state.counter)
+
+    const onChangeMaxValueHandler = (e: ChangeEvent<HTMLInputElement>) => {
+        dispatch(changeMaxValuesAC(e.currentTarget.valueAsNumber))
+    }
+    const onChangeStartValueHandler = (e: ChangeEvent<HTMLInputElement>) => {
+        dispatch(changeStartValuesAC(e.currentTarget.valueAsNumber))
+    }
+    const onClickSet = () => dispatch(setValuesAC())
+
     const error = state.tempStartValue < 0 || state.tempStartValue >= state.tempMaxValue
+
     return (
         <div className={s.container}>
             <div className={s.inputsFrame}>
