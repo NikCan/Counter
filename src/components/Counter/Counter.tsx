@@ -8,7 +8,6 @@ import {incValueAC, InitialStateType, resetValueAC} from "../../redux/counter-re
 
 export const Counter:React.FC = () => {
     console.log("Counter")
-
     const dispatch = useDispatch()
     const state = useSelector<RootStateType, InitialStateType>(state => state.counter)
 

@@ -1,36 +1,5 @@
 import {ActionsType} from "./store";
 
-export type resetValueActionType = ReturnType<typeof resetValueAC>
-export type incValueActionType = ReturnType<typeof incValueAC>
-export type setValuesActionType = ReturnType<typeof setValuesAC>
-export type changeStartValueActionType = ReturnType<typeof changeStartValuesAC>
-export type changeMaxValueActionType = ReturnType<typeof changeMaxValuesAC>
-
-export type InitialStateType = {
-    startValue: number
-    currentValue: number
-    maxValue: number
-    tempStartValue: number
-    tempMaxValue: number
-    message: string
-}
-
-export const resetValueAC = () => ({type: 'RESET'} as const)
-export const incValueAC = () => ({type: 'INC'} as const)
-export const setValuesAC = () => ({type: 'SET'} as const)
-export const changeStartValuesAC = (tempStartValue: number) => ({
-    type: 'CHANGE-START-VALUE',
-    payload: {
-        tempStartValue
-    }
-} as const)
-export const changeMaxValuesAC = (tempMaxValue: number) => ({
-    type: 'CHANGE-MAX-VALUE',
-    payload: {
-        tempMaxValue
-    }
-} as const)
-
 const initialState: InitialStateType = {
     startValue: 0,
     currentValue: 0,
@@ -39,7 +8,6 @@ const initialState: InitialStateType = {
     tempStartValue: 0,
     message: ""
 }
-
 export const counterReducer = (state = initialState, action: ActionsType): InitialStateType => {
     switch (action.type) {
         case "RESET":
@@ -69,4 +37,37 @@ export const counterReducer = (state = initialState, action: ActionsType): Initi
         default:
             return state
     }
+}
+
+// actions
+export const resetValueAC = () => ({type: 'RESET'} as const)
+export const incValueAC = () => ({type: 'INC'} as const)
+export const setValuesAC = () => ({type: 'SET'} as const)
+export const changeStartValuesAC = (tempStartValue: number) => ({
+    type: 'CHANGE-START-VALUE',
+    payload: {
+        tempStartValue
+    }
+} as const)
+export const changeMaxValuesAC = (tempMaxValue: number) => ({
+    type: 'CHANGE-MAX-VALUE',
+    payload: {
+        tempMaxValue
+    }
+} as const)
+
+// types
+export type resetValueActionType = ReturnType<typeof resetValueAC>
+export type incValueActionType = ReturnType<typeof incValueAC>
+export type setValuesActionType = ReturnType<typeof setValuesAC>
+export type changeStartValueActionType = ReturnType<typeof changeStartValuesAC>
+export type changeMaxValueActionType = ReturnType<typeof changeMaxValuesAC>
+
+export type InitialStateType = {
+    startValue: number
+    currentValue: number
+    maxValue: number
+    tempStartValue: number
+    tempMaxValue: number
+    message: string
 }
