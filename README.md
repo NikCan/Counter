@@ -1,2 +1,2 @@
-A simple counter
+A simple counter.
 Stack: TS, React, Redux, LocalStorage
